@@ -7,16 +7,16 @@ import unittest
 import database as db
 
 
-class TestDatabase(unittest.TestCase):
+class TestDatabase(unittest.TestCase):    #Creamos la clase TestDatabase que hereda de unittest.TestCase  
 
-    def setUp(self):
-        db.Clientes.lista = [
+    def setUp(self):                   #setUp es un método que se ejecuta antes de cada test
+        db.Clientes.lista = [           #Creamos una lista de clientes para poder hacer las pruebas
             db.Cliente('15J', 'Marta', 'Pérez'),
             db.Cliente('48H', 'Manolo', 'López'),
             db.Cliente('28Z', 'Ana', 'García')
         ]
 
-    def test_buscar_cliente(self):
+    def test_buscar_cliente(self):               #Creamos el test para buscar un cliente
         cliente_existente = db.Clientes.buscar('15J')
         cliente_inexistente = db.Clientes.buscar('99X')
         self.assertIsNotNone(cliente_existente)
@@ -60,3 +60,6 @@ class TestDatabase(unittest.TestCase):
         self.assertEqual(dni, '28Z')
         self.assertEqual(nombre, 'Mariana')
         self.assertEqual(apellido, 'García')
+
+if __name__=='__main__':
+    unittest.main()

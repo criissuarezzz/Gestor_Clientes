@@ -1,0 +1,7 @@
+@startuml name 
+participant Alice
+participant Bob
+participant John
+    Bob -> Alice : hello 
+    Bob-> John : hi
+@enduml
